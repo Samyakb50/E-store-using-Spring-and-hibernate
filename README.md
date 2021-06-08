@@ -13,11 +13,11 @@
 •	Update order status - Enable admin to change status of book to in queue, dispatched and delivered.</br>
 
 ### End user side functionalities
-•	View all books – Display all list of all available items to end user.</br>
 •	Sign up and/or login – Allow end user to sign up store details in customer table. Login using rest api.</br>
+•	View all books – Display all list of all available items to end user.</br>
 •	Add book to cart – Selected items will be added to user cart.</br>
-•	View orders – Allow customer to views their order and ask user about mode of payment give discount.</br>
 •	View/edit cart- Allow user to edit their cart. </br>
+•	View orders – Allow customer to views their order and ask user about mode of payment give discount.</br>
 
 ### Database
 
