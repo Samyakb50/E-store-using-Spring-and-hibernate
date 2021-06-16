@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Product {
 	@Id
@@ -14,24 +13,27 @@ public class Product {
  	@Column(name="productId")
     private int productId;
 
-    
     @Column(name="productName")
     private String productName;
+
     @Column(name="productCategory")
     private String productCategory;
+    
     @Column(name="productDescription")
     private String productDescription;
-
     
     @Column(name="productPrice")
     private double productPrice;
     
     @Column(name="productStatus")
     private String productStatus;
+   
     @Column(name="unitInStock")
     private int unitInStock;
+    
     @Column(name="productManufacturer")
     private String productManufacturer;
+    
     @Column(name="productImage")
     private String productImage;
     
@@ -75,8 +77,6 @@ public class Product {
         this.productPrice = productPrice;
     }
 
-  
-
     public String getProductStatus() {
         return productStatus;
     }
@@ -108,6 +108,4 @@ public class Product {
     public void setProductImage(String productImage) {
         this.productImage = productImage;
     }
-
-
 }

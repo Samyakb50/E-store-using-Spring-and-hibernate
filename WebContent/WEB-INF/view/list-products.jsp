@@ -1,91 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
+	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"%>
+
+<!-- 	navigation Bar -->
+
+<%@ include file="adminNavbar.jsp"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/images2/icons/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor2/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/fonts2/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor2/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor2/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/vendor2/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css2/util.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css2/main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Product Management</title>
+<link rel="icon" type="image/x-icon" href="${pageContext.request.contextPath}/resources/images11/favicon.png">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap11/css/bootstrap.min.css">
+<script src="${pageContext.request.contextPath}/resources/js11/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/resources/bootstrap11/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css11/ProductList.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js11/productController.js"></script>
 </head>
-<body>
-	<center><input type="button" value="Add product" onClick="window.location.href='showFormForAdd'; return false;" class="btn btn-success"/>
-	</center>
-	<br>
-	<br>
-	<div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-<div class="table100 ver5 m-b-110">
-					<table data-vertable="ver5">
-						<thead>
-							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1">Product Name</th>
-								<th class="column100 column2" data-column="column2">Product Category</th>
-								<th class="column100 column3" data-column="column3">Product Description</th>
-								<th class="column100 column4" data-column="column4">Price</th>
-								<th class="column100 column5" data-column="column5">Status</th>
-								<th class="column100 column6" data-column="column6">UnitInStock</th>
-								<th class="column100 column7" data-column="column7">Manufacturer</th>
-								<th class="column100 column8" data-column="column8">Action</th>
-								
-							</tr>
-						</thead>
-						
-						<tbody>
-							<c:forEach var="tempProduct" items="${products}">
-					<c:url var="updateLink" value="/product/showFormForUpdate">
+<body ng-app="myapp">
+	<div class="container" id="productTable"
+		style="width: 1145px; margin-bottom: 180px;">
+		<h3>Items List</h3>
+		<table class="table table-hover" id="productList">
+			<thead>
+				<tr>
+					<th>Product Name</th>
+					<th>Product Category</th>
+					<th>Product Description</th>
+					<th>Price</th>
+					<th>Status</th>
+					<th>UnitInStock</th>
+					<th>Manufacturer</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="tempProduct" items="${products}">
+					<c:url var="updateLink" value="/product/update">
 						<c:param name="productId" value="${tempProduct.productId}" />
 					</c:url>
 					<c:url var="deleteLink" value="/product/delete">
 						<c:param name="productId" value="${tempProduct.productId}" />
 					</c:url>
-							<tr class="row100">
-								<td class="column100 column1" data-column="column1">${tempProduct.productName}</td>
-								<td class="column100 column2" data-column="column2">${tempProduct.productCategory}</td>
-								<td class="column100 column3" data-column="column3">${tempProduct.productDescription}</td>
-								<td class="column100 column4" data-column="column4">${tempProduct.productPrice}</td>
-								<td class="column100 column5" data-column="column5">${tempProduct.productStatus}</td>
-								<td class="column100 column6" data-column="column6">${tempProduct.unitInStock}</td>
-								<td class="column100 column7" data-column="column7">${tempProduct.productManufacturer}</td>
-								<td class="column100 column8" data-column="column8"><a href="${updateLink}">Update</a>
-						|
-						<a href="${deleteLink}" onClick="if (!(confirm('Are u sure'))) return false">Delete</a></td>
-								
-							</tr>
-						</c:forEach>
-							
-						</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
+					<tr>
+						<td>${tempProduct.productName}</td>
+						<td>${tempProduct.productCategory}</td>
+						<td>${tempProduct.productDescription}</td>
+						<td>${tempProduct.productPrice}</td>
+						<td>${tempProduct.productStatus}</td>
+						<td>${tempProduct.unitInStock}</td>
+						<td>${tempProduct.productManufacturer}</td>
+						<td><a href="${updateLink}">Update</a>|<a href="${deleteLink}" onClick="if (!(confirm('Are u sure'))) return false">Delete</a></td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
 	</div>
 
-
-	
-
-<!--===============================================================================================-->	
-	<script src="${pageContext.request.contextPath}/resources/vendor2/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/vendor2/bootstrap/js/popper.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/vendor2/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/vendor2/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/js2/main.js"></script>
 </body>
 </html>

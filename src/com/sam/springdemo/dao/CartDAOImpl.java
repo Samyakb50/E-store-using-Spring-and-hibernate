@@ -3,17 +3,15 @@ package com.sam.springdemo.dao;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import com.sam.springdemo.entity.Cart;
 import com.sam.springdemo.entity.Helper;
 import com.sam.springdemo.entity.Order1;
-import com.sam.springdemo.entity.Product;
+
 @Repository
 public class CartDAOImpl implements CartDAO {
 
@@ -67,7 +65,6 @@ public class CartDAOImpl implements CartDAO {
 	
 	@Override
 	public List<Cart> getCart() {
-		// TODO Auto-generated method stub
 		Session currentSession = sessionFactory.getCurrentSession();
 		int cid=0,oid=0;
 		Query q=currentSession.createQuery("from Helper");
@@ -82,12 +79,12 @@ public class CartDAOImpl implements CartDAO {
 		query.setParameter("id", cid);
 		query.setParameter("oo", oid);
 		List<Cart> ll=query.list();
+		System.out.println(ll.size());
 		return ll;
 	}
 
 	@Override
 	public void check() {
-		// TODO Auto-generated method stub
 		Session currentSession = sessionFactory.getCurrentSession();
 		int cid=0,oid=0,total=0;
 		Query q=currentSession.createQuery("from Helper");
@@ -114,7 +111,6 @@ public class CartDAOImpl implements CartDAO {
 
 	@Override
 	public void deleteProduct(int theId) {
-		// TODO Auto-generated method stub
 		Session currentSession=sessionFactory.getCurrentSession();
 		Cart theProduct=currentSession.get(Cart.class, theId);
 		currentSession.delete(theProduct);

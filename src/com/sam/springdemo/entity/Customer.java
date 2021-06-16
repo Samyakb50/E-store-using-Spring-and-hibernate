@@ -1,23 +1,24 @@
 package com.sam.springdemo.entity;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Customer {
-	 @Id
-	 @GeneratedValue(strategy=GenerationType.IDENTITY)
+		@Id
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
 	 	@Column(name="customerId")
 	    private int customerId;
-	 @Column(name="customerName")
-	    
+	 
+		@Column(name="customerName")
 	    private String customerName;
 	    
 	    @Column(name="customerEmail")
 	    private String customerEmail;
+	    
 	    @Column(name="customerPhone")
 	    private String customerPhone;
 	    

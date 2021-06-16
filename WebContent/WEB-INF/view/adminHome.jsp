@@ -37,12 +37,13 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="${pageContext.request.contextPath}/product/aa" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-    <a href="${pageContext.request.contextPath}/product/showFormForAdd" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus fa-fw"></i>  Add Book</a>
-    <a href="${pageContext.request.contextPath}/product/adminlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-edit fa-fw"></i>  Update</a>
-    <a href="${pageContext.request.contextPath}/product/adminlist" class="w3-bar-item w3-button w3-padding"><i class="fa fa-trash fa-fw"></i>  Delete</a>
+    <a href="${pageContext.request.contextPath}/admin/dashboard" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="${pageContext.request.contextPath}/product/showFormForAdd" class="w3-bar-item w3-button w3-padding"><i class="fa fa-plus fa-fw"></i>  Add Item</a>
+    <a href="${pageContext.request.contextPath}/admin/list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-list fa-fw"></i>  List Item</a>
+    <a href="${pageContext.request.contextPath}/admin/list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-edit fa-fw"></i>  Update Item</a>
+    <a href="${pageContext.request.contextPath}/admin/list" class="w3-bar-item w3-button w3-padding"><i class="fa fa-trash fa-fw"></i>  Delete Item</a>
      <a href="${pageContext.request.contextPath}/order/orderList" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-    <a href="${pageContext.request.contextPath}/product/home" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw"></i>  Signout</a>
+    <a href="${pageContext.request.contextPath}/home" class="w3-bar-item w3-button w3-padding"><i class="fa fa-sign-out fa-fw"></i>  Signout</a>
     
   </div>
 </nav>

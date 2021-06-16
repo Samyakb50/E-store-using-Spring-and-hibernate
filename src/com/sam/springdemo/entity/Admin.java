@@ -3,11 +3,12 @@ package com.sam.springdemo.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
 @Entity
 public class Admin {
 	@Id
-	 	@Column(name="customerId")
-	    private int customerId;
+	@Column(name="customerId")
+	private int customerId;
 	
 	@Column(name="password")
     private String password;

@@ -1,8 +1,6 @@
 package com.sam.springdemo.service;
 
 import java.util.List;
-
-
 import com.sam.springdemo.entity.Product;
 
 public interface ProductService {

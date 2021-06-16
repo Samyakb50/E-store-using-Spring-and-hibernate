@@ -1,7 +1,6 @@
 package com.sam.springdemo.dao;
 
 import java.util.List;
-
 import com.sam.springdemo.entity.Cart;
 
 public interface CartDAO {
